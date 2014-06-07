@@ -1,22 +1,16 @@
+var App = angular.module('FeedReader', []);
 
-	'use strict';
+App.controller("AllFeedsCtrl", function() {
+  this.feeds = allFeeds;
+  this.tags = allTags;
+});
 
-	var App = angular.module('FeedReader', []);
+var allFeeds = [
+  { name: 'CNN', url: 'http://rss.cnn.com/rss/cnn_topstories.rss' },
+  { name: 'Mashable', url: 'http://feeds2.feedburner.com/Mashable' },
+  { name: 'Huffington Post', url: 'http://feeds.huffingtonpost.com/huffingtonpost/raw_feed' },
+  { name: 'LRT', url: 'http://gdata.youtube.com/feeds/base/users/LRTinklas/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile' }
+];
 
-	App.controller("FeedCtrl", ['$scope','FeedService', function ($scope,Feed) {    
-		$scope.loadButonText="Load";
-		$scope.loadFeed=function(e){        
-			Feed.parseFeed($scope.feedSrc).then(function(res){
-				$scope.loadButonText=angular.element(e.target).text();
-				$scope.feeds=res.data.responseData.feed.entries;
-			});
-		}
-	}]);
+var allTags = [ 'media', 'tv', 'radio', 'news' ];
 
-	App.factory('FeedService',['$http',function($http){
-		return {
-			parseFeed : function(url){
-				return $http.jsonp('http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url));
-			}
-		}
-	}]);
