@@ -16,14 +16,15 @@
 <div class="container-fluid">
 
     <div ng-controller="AllFeedsCtrl as allfeeds">
-        <h2>All feeds:</h2>
+        <h1>All feeds:</h1>
+        Filter by tag: <select ng-model="filterText.tags" ng-options="tag.name as tag.name for tag in allfeeds.tags"></select>
         <ul>
-           <li ng-repeat="feedElement in allfeeds.feeds">
-               <a href="{{ feedElement.url }}">{{ feedElement.name }}</a>
+           <li ng-repeat="feedElement in allfeeds.feeds | filter:filterText">
+               <a href="{{ feedElement.url }}">{{ feedElement.name }}</a>: {{ feedElement.tags }}
            </li>
         </ul>
     </div>
 </div>
-  
+
 </body>
 </html>
