@@ -18,6 +18,7 @@
     <div ng-controller="AllFeedsCtrl as allfeeds">
         <h1>All feeds:</h1>
         Filter by tag: <select ng-model="filterText.tags" ng-options="tag.name as tag.name for tag in allfeeds.tags"></select>
+        <a href="#" ng-click="filterText.tags = ''">See all</a>
         <ul>
            <li ng-repeat="feedElement in allfeeds.feeds | filter:filterText">
                <a href="{{ feedElement.url }}">{{ feedElement.name }}</a>: {{ feedElement.tags }}
