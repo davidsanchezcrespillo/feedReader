@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="FeedReader">
+<html ng-app="RSSFeedApp">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <title>AngularJS Feed Reader - jsFiddle demo</title>
