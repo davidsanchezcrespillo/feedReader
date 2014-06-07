@@ -1,18 +1,20 @@
 var App = angular.module('FeedReader', []);
 
-App.controller("AllFeedsCtrl", function() {
+App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) {
   this.feeds = allFeeds;
   this.tags = allTags;
-});
 
-App.controller("FeedCtrl", ['$scope','FeedService', function ($scope,Feed) {    
-  $scope.loadButonText="Load";
-  $scope.loadFeed=function(e){        
-    Feed.parseFeed($scope.feedSrc).then(function(res){
+  this.loadFeed=function(e, feedSrc){        
+    Feed.parseFeed(feedSrc).then(function(res){
       $scope.loadButonText=angular.element(e.target).text();
       $scope.feeds=res.data.responseData.feed.entries;
     });
   }
+}]);
+
+App.controller("FeedCtrl", ['$scope','FeedService', function ($scope,Feed) {    
+  $scope.loadButonText="Load";
+
 }]);
 
 App.factory('FeedService',['$http',function($http){
