@@ -14,7 +14,6 @@ App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) 
 
 App.controller("FeedCtrl", ['$scope','FeedService', function ($scope,Feed) {    
   $scope.loadButonText="Load";
-
 }]);
 
 App.factory('FeedService',['$http',function($http){
@@ -45,8 +44,13 @@ var allFeeds = [
     name: 'LRT', 
     url: 'http://gdata.youtube.com/feeds/base/users/LRTinklas/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile',
     tags: ['media', 'tv', 'news']
+  },
+  {
+	name: 'Lithuanian Out Loud',
+	url: 'http://lithuanian.libsyn.com/rss',
+	tags: ['learning']  
   }
 ];
 
-var allTags = [ {name: 'media'}, {name: 'tv'}, {name: 'radio'}, {name: 'news'} ];
+var allTags = [ {name: 'media'}, {name: 'tv'}, {name: 'radio'}, {name: 'news'}, {name: 'learning'} ];
 
