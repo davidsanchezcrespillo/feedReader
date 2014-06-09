@@ -1,19 +1,14 @@
 var App = angular.module('FeedReader', []);
 
 App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) {
-  this.feeds = allFeeds;
+  this.allSources = allSources;
   this.tags = allTags;
 
   this.loadFeed=function(e, feedSrc){        
-    Feed.parseFeed(feedSrc).then(function(res){
-      $scope.loadButonText=angular.element(e.target).text();
+    Feed.parseFeed(feedSrc).then(function(res) {
       $scope.feeds=res.data.responseData.feed.entries;
     });
   }
-}]);
-
-App.controller("FeedCtrl", ['$scope','FeedService', function ($scope,Feed) {    
-  $scope.loadButonText="Load";
 }]);
 
 App.factory('FeedService',['$http',function($http){
@@ -24,22 +19,7 @@ App.factory('FeedService',['$http',function($http){
   }
 }]);
 
-var allFeeds = [
-  { 
-    name: 'CNN',
-    url: 'http://rss.cnn.com/rss/cnn_topstories.rss',
-    tags: ['news', 'tv']
-  },
-  { 
-    name: 'Mashable',
-    url: 'http://feeds2.feedburner.com/Mashable',
-    tags: ['news']
-  },
-  { 
-    name: 'Huffington Post', 
-    url: 'http://feeds.huffingtonpost.com/huffingtonpost/raw_feed',
-    tags: ['news']
-  },
+var allSources = [
   { 
     name: 'LRT', 
     url: 'http://gdata.youtube.com/feeds/base/users/LRTinklas/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile',
@@ -49,6 +29,16 @@ var allFeeds = [
 	name: 'Lithuanian Out Loud',
 	url: 'http://lithuanian.libsyn.com/rss',
 	tags: ['learning']  
+  },
+  {
+	name: 'Ziniu Radijas',
+	url: 'http://gdata.youtube.com/feeds/base/users/ZiniuTV/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile',
+	tags: ['media', 'radio', 'news']
+  },
+  {
+	name: 'Lietuvos Rytas',
+	url: 'http://www.lrytas.lt/rss/',
+	tags: ['media', 'news']
   }
 ];
 

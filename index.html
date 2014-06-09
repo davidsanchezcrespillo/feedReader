@@ -16,12 +16,12 @@
 <div class="container-fluid">
 
     <h1>feedReader</h1>
-    <div ng-controller="AllFeedsCtrl as allfeeds">
-        Filter by tag: <select ng-model="filterText.tags" ng-options="tag.name as tag.name for tag in allfeeds.tags"></select>
+    <div ng-controller="AllFeedsCtrl as allFeedsCtrl">
+        Filter by tag: <select ng-model="filterText.tags" ng-options="tag.name as tag.name for tag in allFeedsCtrl.tags"></select>
         <a href="#" ng-click="filterText.tags = ''">See all</a>
         <ul>
-           <li ng-repeat="feedElement in allfeeds.feeds | filter:filterText">
-               <input type="checkbox" name="{{ feedElement.name }}" /><a href="#" ng-click="allfeeds.loadFeed($event, feedElement.url);">{{ feedElement.name }}</a>: {{ feedElement.tags }}
+           <li ng-repeat="feedElement in allFeedsCtrl.allSources | filter:filterText">
+               <input type="checkbox" name="{{ feedElement.name }}" /><a href="#" ng-click="allFeedsCtrl.loadFeed($event, feedElement.url);">{{ feedElement.name }}</a>: {{ feedElement.tags }}
            </li>
         </ul>
 
