@@ -1,24 +1,41 @@
+// The application instance
 var App = angular.module('FeedReader', []);
 
+// The controller
 App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) {
   this.allSources = allSources;
   this.tags = allTags;
+  
+  var allFeedsController = this;
+  allFeedsController.currentFeeds = [];
+  
+  this.loadFeed = function(e, feedSrc) {
+    // DEBUG
+    //console.log(feedSrc);        
+    // END DEBUG
 
-  this.loadFeed=function(e, feedSrc){        
     Feed.parseFeed(feedSrc).then(function(res) {
-      $scope.feeds=res.data.responseData.feed.entries;
+      allFeedsController.currentFeeds=res.data.responseData.feed.entries;
+      // DEBUG
+      //console.log(res.data.responseData.feed);
+      //console.log(allFeedsController.currentFeeds);
+      // END DEBUG
     });
   }
 }]);
 
-App.factory('FeedService',['$http',function($http){
+// The feed service
+App.factory('FeedService',['$http', function($http) {
   return {
-    parseFeed : function(url){
+    parseFeed : function(url) {
       return $http.jsonp('http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url));
     }
   }
 }]);
 
+/**
+ * Feed sources.
+ */
 var allSources = [
   { 
     name: 'LRT', 
@@ -39,8 +56,26 @@ var allSources = [
 	name: 'Lietuvos Rytas',
 	url: 'http://www.lrytas.lt/rss/',
 	tags: ['media', 'news']
+  },
+  {
+	  name: 'Lietuviskos Zinios',
+	  url: 'http://lzinios.lt/rss/all/',
+	  tags: ['news']
+  },
+  {
+	  name: 'Bernardinai',
+	  url: 'http://www.bernardinai.lt/rss/news',
+	  tags: ['media', 'news']
   }
 ];
 
-var allTags = [ {name: 'media'}, {name: 'tv'}, {name: 'radio'}, {name: 'news'}, {name: 'learning'} ];
-
+/**
+ * Feed tags.
+ */
+var allTags = [
+  {name: 'media'},
+  {name: 'tv'},
+  {name: 'radio'},
+  {name: 'news'},
+  {name: 'learning'}
+];

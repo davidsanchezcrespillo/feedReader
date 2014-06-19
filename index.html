@@ -21,17 +21,18 @@
         <a href="#" ng-click="filterText.tags = ''">See all</a>
         <ul>
            <li ng-repeat="feedElement in allFeedsCtrl.allSources | filter:filterText">
-               <input type="checkbox" name="{{ feedElement.name }}" /><a href="#" ng-click="allFeedsCtrl.loadFeed($event, feedElement.url);">{{ feedElement.name }}</a>: {{ feedElement.tags }}
+               <a href="#" ng-click="allFeedsCtrl.loadFeed($event, feedElement.url); loadData()">{{ feedElement.name }}</a>: {{ feedElement.tags }}
            </li>
         </ul>
 
         <div class="row-fluid">
-        <span class="badge badge-warning" ng-show="feeds.length > 0">{{(feeds | filter:filterText).length}} Items</span>
+        <p></p><span class="badge badge-warning" ng-show="allFeedsCtrl.currentFeeds.length > 0">{{(allFeedsCtrl.currentFeeds).length}} Items</span></p>
         <ul class="unstyled">
-          <li ng-repeat="feed in feeds | filter:filterText">                    
+          <li ng-repeat="feed in allFeedsCtrl.currentFeeds">                    
              <p><a target="_blank" href="{{feed.link}}">{{feed.title}}</a></p>
              <p class="text-left">{{feed.contentSnippet}}</p>                    
              <span class="small">{{feed.publishedDate}}</span>
+             <hr/>
           </li>                
         </ul>            
         </div>
