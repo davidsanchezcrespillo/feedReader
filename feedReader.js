@@ -15,7 +15,7 @@ App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) 
     // END DEBUG
 
     Feed.parseFeed(feedSrc).then(function(res) {
-      allFeedsController.currentFeeds=res.data.responseData.feed.entries;
+      allFeedsController.currentFeeds = res.data.responseData.feed.entries;
       // DEBUG
       //console.log(res.data.responseData.feed);
       //console.log(allFeedsController.currentFeeds);
@@ -25,13 +25,21 @@ App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) 
 }]);
 
 // The feed service
-App.factory('FeedService',['$http', function($http) {
+App.factory('FeedService', ['$http', function($http) {
   return {
-    parseFeed : function(url) {
+    parseFeed: function(url) {
       return $http.jsonp('http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=50&callback=JSON_CALLBACK&q=' + encodeURIComponent(url));
     }
   }
 }]);
+
+// A directive to display all the feed items
+App.directive('displayFeedItems', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'display-feed-items.html'
+	};
+});
 
 /**
  * Feed sources.

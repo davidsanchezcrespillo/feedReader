@@ -1,0 +1,11 @@
+<div class="row-fluid">
+  <p><span class="badge badge-warning" ng-show="allFeedsCtrl.currentFeeds.length > 0">{{(allFeedsCtrl.currentFeeds).length}} Items</span></p>
+  <ul class="unstyled">
+    <li ng-repeat="feed in allFeedsCtrl.currentFeeds">                    
+      <p><a target="_blank" href="{{feed.link}}">{{feed.title}}</a></p>
+      <p class="text-left">{{feed.contentSnippet}}</p>                    
+      <span class="small">{{feed.publishedDate}}</span>
+      <hr/>
+    </li>                
+  </ul>            
+</div>

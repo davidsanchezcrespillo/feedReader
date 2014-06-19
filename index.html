@@ -10,11 +10,10 @@
   <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css">  
   <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-responsive.min.css">    
   <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
+
 <body>
 <div class="container-fluid">
-
     <h1>feedReader</h1>
     <div ng-controller="AllFeedsCtrl as allFeedsCtrl">
         Filter by tag: <select ng-model="filterText.tags" ng-options="tag.name as tag.name for tag in allFeedsCtrl.tags"></select>
@@ -25,19 +24,9 @@
            </li>
         </ul>
 
-        <div class="row-fluid">
-        <p></p><span class="badge badge-warning" ng-show="allFeedsCtrl.currentFeeds.length > 0">{{(allFeedsCtrl.currentFeeds).length}} Items</span></p>
-        <ul class="unstyled">
-          <li ng-repeat="feed in allFeedsCtrl.currentFeeds">                    
-             <p><a target="_blank" href="{{feed.link}}">{{feed.title}}</a></p>
-             <p class="text-left">{{feed.contentSnippet}}</p>                    
-             <span class="small">{{feed.publishedDate}}</span>
-             <hr/>
-          </li>                
-        </ul>            
-        </div>
+		<display-feed-items></display-feed-items>
     </div>
 </div>
-
 </body>
+
 </html>
