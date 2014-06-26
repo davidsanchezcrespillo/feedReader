@@ -8,6 +8,7 @@ App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) 
   
   var allFeedsController = this;
   allFeedsController.currentFeeds = [];
+  allFeedsController.feedTitle = '';
   
   this.loadFeed = function(e, feedSrc) {
     // DEBUG
@@ -16,8 +17,9 @@ App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) 
 
     Feed.parseFeed(feedSrc).then(function(res) {
       allFeedsController.currentFeeds = res.data.responseData.feed.entries;
+      allFeedsController.feedTitle = res.data.responseData.feed.title;
       // DEBUG
-      //console.log(res.data.responseData.feed);
+      console.log(res.data.responseData.feed);
       //console.log(allFeedsController.currentFeeds);
       // END DEBUG
     });
