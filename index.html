@@ -5,20 +5,17 @@
   <title>feedReader</title>
   <script type='text/javascript' src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js'></script>
-  <!--<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>-->
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <script type='text/javascript' src='feedReader.js'></script>
-  <!--<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css">  -->
-  <!--<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-responsive.min.css">    -->
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
-<body>
+<body ng-controller="AllFeedsCtrl as allFeedsCtrl">
 <div class="container-fluid">
-    <h1 class="bg-primary">feedReader</h1>
-    <div ng-controller="AllFeedsCtrl as allFeedsCtrl">
+    <h1 class="pageTitle bg-primary">{{allFeedsCtrl.appTitle}}</h1>
+    <div>
       <div class="bg-info row-fluid">
         <div class="col-xs-12 col-sm-4">
         Filter by tag: <select ng-model="filterText.tags" ng-options="tag.name as tag.name for tag in allFeedsCtrl.tags"></select>

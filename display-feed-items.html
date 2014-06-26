@@ -4,7 +4,7 @@
 </h3>
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="feed in allFeedsCtrl.currentFeeds">                    
-    <p><span class="label label-default">{{feed.publishedDate}}</span>&nbsp;<a target="_blank" href="{{feed.link}}"><strong>{{feed.title}}</strong></a></p>
-    <p class="text-left">{{feed.contentSnippet}}</p>                    
+    <h4><small><span class="label label-default">{{feed.publishedDate}}</span></small>&nbsp;<a target="_blank" href="{{feed.link}}"><strong>{{feed.title}}</strong></a></h4>
+    <p class="text-muted">{{feed.contentSnippet}}</p>                    
   </li>                
 </ul>            

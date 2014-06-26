@@ -5,6 +5,7 @@ var App = angular.module('FeedReader', []);
 App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) {
   this.allSources = allSources;
   this.tags = allTags;
+  this.appTitle = appTitle;
   
   var allFeedsController = this;
   allFeedsController.currentFeeds = [];
@@ -89,3 +90,6 @@ var allTags = [
   {name: 'news'},
   {name: 'learning'}
 ];
+
+var appTitle = 'LT Feeds';
+
