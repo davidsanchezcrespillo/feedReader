@@ -48,4 +48,4 @@ var allTags = [
 
 var appTitle = 'LT Feeds';
 
-
+var appDescription = 'Some feeds that can be useful for Lithuanian language learners';
