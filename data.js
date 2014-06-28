@@ -47,5 +47,5 @@ var allTags = [
 ];
 
 var appTitle = 'LT Feeds';
-
-var appDescription = 'Some feeds that can be useful for Lithuanian language learners';
+var appLogo = 'lithuanian_flag.png';
+var appDescription = 'Some feeds that might be useful for Lithuanian language learners';

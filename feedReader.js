@@ -6,6 +6,7 @@ App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) 
   this.allSources = allSources;
   this.tags = allTags;
   this.appTitle = appTitle;
+  this.appLogo = appLogo;
   this.appDescription = appDescription;
   
   var allFeedsController = this;
