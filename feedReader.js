@@ -3,13 +3,9 @@ var App = angular.module('FeedReader', []);
 
 // The controller
 App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) {
-  this.allSources = allSources;
-  this.tags = allTags;
-  this.appTitle = appTitle;
-  this.appLogo = appLogo;
-  this.appDescription = appDescription;
-  
   var allFeedsController = this;
+
+  allFeedsController.appData = appData;
   allFeedsController.currentFeeds = [];
   allFeedsController.feedTitle = '';
   allFeedsController.feedUrl = '';

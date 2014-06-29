@@ -2,7 +2,7 @@
 <html ng-app="FeedReader" ng-controller="AllFeedsCtrl as allFeedsCtrl">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>{{allFeedsCtrl.appTitle}}</title>
+  <title>{{allFeedsCtrl.appData.appTitle}}</title>
   <script type='text/javascript' src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js'></script>
   <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -17,19 +17,19 @@
 <div class="container-fluid">
     <a href="https://github.com/davidsanchezcrespillo/feedReader"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
 	
-    <h1 class="pageTitle bg-primary">{{allFeedsCtrl.appTitle}}<img src="{{allFeedsCtrl.appLogo}}" class="pull-right" /></h1>
-    <p class="well well-sm">{{allFeedsCtrl.appDescription}}</p>
+    <h1 class="pageTitle bg-primary">{{allFeedsCtrl.appData.appTitle}}<img src="{{allFeedsCtrl.appData.appLogo}}" class="pull-right" /></h1>
+    <p class="well well-sm">{{allFeedsCtrl.appData.appDescription}}</p>
 
     <div>
       <div class="bg-info row-fluid">
         <div class="col-xs-12 col-sm-4">
 	    <div class="well">
-          Filter by tag: <select ng-model="filterText.tags" ng-options="tag.name as tag.name for tag in allFeedsCtrl.tags"></select>
+          Filter by tag: <select ng-model="filterText.tags" ng-options="tag.name as tag.name for tag in allFeedsCtrl.appData.allTags"></select>
           <a class="btn btn-default" href="#" ng-click="filterText.tags = ''">See all</a>
         </div>
-        <ul class="list-group">
-           <li class="list-group-item" ng-repeat="feedElement in allFeedsCtrl.allSources | filter:filterText">
-               <a href="#" ng-click="allFeedsCtrl.loadFeed($event, feedElement.url); loadData()">{{ feedElement.name }}</a>: {{ feedElement.tags }}
+        <ul class="nav nav-tabs nav-stacked">
+           <li class="" ng-repeat="feedElement in allFeedsCtrl.appData.allSources | filter:filterText">
+               <a href="#" ng-click="allFeedsCtrl.loadFeed($event, feedElement.url); loadData()">{{ feedElement.name }}</a>
            </li>
         </ul>
         </div>

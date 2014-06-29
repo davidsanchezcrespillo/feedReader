@@ -1,8 +1,7 @@
 
-/**
- * Feed sources.
- */
-var allSources = [
+var appData = {
+  /* Feed sources. */
+  allSources: [
   { 
     name: 'LRT', 
     url: 'http://gdata.youtube.com/feeds/base/users/LRTinklas/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile',
@@ -32,20 +31,27 @@ var allSources = [
 	  name: 'Bernardinai',
 	  url: 'http://www.bernardinai.lt/rss/news',
 	  tags: ['media', 'news']
+  },
+  {
+	  name: 'Delfi Lietuvoje',
+	  url: 'http://www.delfi.lt/rss/feeds/lithuania.xml',
+	  tags: ['media', 'news']
   }
-];
+  ],
 
-/**
- * Feed tags.
- */
-var allTags = [
-  {name: 'media'},
-  {name: 'tv'},
-  {name: 'radio'},
-  {name: 'news'},
-  {name: 'learning'}
-];
-
-var appTitle = 'LT Feeds';
-var appLogo = 'lithuanian_flag.png';
-var appDescription = 'Some feeds that might be useful for Lithuanian language learners';
+  /* Feed tags. */
+  allTags: [
+    {name: 'media'},
+    {name: 'tv'},
+    {name: 'radio'},
+    {name: 'news'},
+    {name: 'learning'}
+  ],
+  
+  /* Application title. */
+  appTitle : 'LT Feeds',
+  /* Application logo image */
+  appLogo : 'lithuanian_flag.png',
+  /* Application description */
+  appDescription : 'Some feeds that might be useful for Lithuanian language learners'
+};
