@@ -25,6 +25,11 @@ App.controller("AllFeedsCtrl", ['$scope', 'FeedService', function($scope, Feed) 
       // END DEBUG
     });
   }
+  
+  this.filterDate = function(dateToFilter) {
+    return dateToFilter.replace(/.*, (\d\d \w\w\w \d\d\d\d).*/, "\$1");
+  };
+	  
 }]);
 
 // The feed service
