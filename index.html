@@ -29,7 +29,7 @@
         </div>
         <ul class="nav nav-tabs nav-stacked">
            <li class="" ng-repeat="feedElement in allFeedsCtrl.appData.allSources | filter:filterText">
-               <a href="#" ng-click="allFeedsCtrl.loadFeed($event, feedElement.url); loadData()">{{ feedElement.name }}</a>
+               <a href="#" ng-click="allFeedsCtrl.loadFeed($event, feedElement.url)">{{ feedElement.name }}</a>
            </li>
         </ul>
         </div>

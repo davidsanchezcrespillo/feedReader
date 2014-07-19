@@ -1,10 +1,14 @@
-<h3>
-<a href="{{allFeedsCtrl.feedUrl}}">{{allFeedsCtrl.feedTitle}}</a>&nbsp;
-<small><span class="label label-primary" ng-show="allFeedsCtrl.currentFeeds.length > 0">{{(allFeedsCtrl.currentFeeds).length}} Items</span></small>
+<h3 ng-show="allFeedsCtrl.currentFeeds.length > 0">
+  <a href="{{allFeedsCtrl.feedUrl}}"><img src="rss.png" /></a>&nbsp;
+  <a href="{{allFeedsCtrl.feedUrl}}">{{allFeedsCtrl.feedTitle}}</a>&nbsp;
+  <small><span class="label label-primary">{{(allFeedsCtrl.currentFeeds).length}} Items</span></small>
 </h3>
 <ul class="list-group">
-  <li class="list-group-item" ng-repeat="feed in allFeedsCtrl.currentFeeds">                    
-    <h4><small><span class="label label-default">{{feed.publishedDate}}</span></small>&nbsp;<a target="_blank" href="{{feed.link}}"><strong>{{feed.title}}</strong></a></h4>
-    <p class="text-muted">{{feed.contentSnippet}}</p>                    
-  </li>                
-</ul>            
+  <li class="list-group-item" ng-repeat="feed in allFeedsCtrl.currentFeeds">
+    <h4>
+		<small><span class="label label-default">{{feed.publishedDate}}</span></small>&nbsp;
+		<a target="_blank" href="{{feed.link}}"><strong>{{feed.title}}</strong></a>
+    </h4>
+    <p class="text-muted">{{feed.contentSnippet}}</p>
+  </li>
+</ul>

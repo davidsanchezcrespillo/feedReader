@@ -3,9 +3,14 @@ var appData = {
   /* Feed sources. */
   allSources: [
   { 
-    name: 'LRT', 
+    name: 'LRT Videos', 
     url: 'http://gdata.youtube.com/feeds/base/users/LRTinklas/uploads?alt=rss&amp;v=2&amp;orderby=published&amp;client=ytapi-youtube-profile',
     tags: ['media', 'tv', 'news']
+  },
+  {
+	  name: 'LRT Mokslas ir IT',
+      url: 'http://www.lrt.lt/naujienos/mokslas_ir_it?rss',
+      tags: ['media', 'news']
   },
   {
 	name: 'Lithuanian Out Loud',
@@ -35,6 +40,11 @@ var appData = {
   {
 	  name: 'Delfi Lietuvoje',
 	  url: 'http://www.delfi.lt/rss/feeds/lithuania.xml',
+	  tags: ['media', 'news']
+  },
+  {
+	  name: '15Min',
+	  url: 'http://www.15min.lt/rss',
 	  tags: ['media', 'news']
   }
   ],
