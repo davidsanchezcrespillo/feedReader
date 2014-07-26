@@ -1,0 +1,5 @@
+Things to do:
+
+- Adding more application-specific configuration options (text, contact, title...)
+- Moving the application data to a different location (another server) and access it through another protocol (REST?)
+
