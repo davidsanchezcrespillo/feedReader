@@ -46,6 +46,11 @@ var appData = {
 	  name: '15Min',
 	  url: 'http://www.15min.lt/rss',
 	  tags: ['media', 'news']
+  },
+  {
+	  name: 'Labas Rytas (DSC)',
+	  url: 'http://labasrytas.drupalgardens.com/vocabulary.xml',
+	  tags: ['learning']
   }
   ],
 
@@ -63,5 +68,7 @@ var appData = {
   /* Application logo image */
   appLogo : 'lithuanian_flag.png',
   /* Application description */
-  appDescription : 'Some feeds that might be useful for Lithuanian language learners'
+  appDescription : 'Some feeds that might be useful for Lithuanian language learners',
+  /* Application contact details */
+  appContact : 'http://sanchezcrespillo.info/david'
 };
