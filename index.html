@@ -12,8 +12,6 @@
 <body>
 <div class="container">
     <div class="row">
-      <a href="https://github.com/davidsanchezcrespillo/feedReader"><img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub"></a>
-    
       <h1 class="pageTitle bg-primary">{{allFeedsCtrl.appData.appTitle}}<img src="{{allFeedsCtrl.appData.appLogo}}" class="alignRight" /></h1>
       <p class="well well-sm">{{allFeedsCtrl.appData.appDescription}}</p>
     </div>
@@ -36,7 +34,11 @@
         </div>
     </div>
     <div class="bg-info row">
-    <p class="text-center"><a href="{{allFeedsCtrl.appData.appContact}}">Contact</a></p>
+    <p class="text-center">
+      <a href="{{allFeedsCtrl.appData.appContact}}">Contact</a>
+      |
+      <a href="https://github.com/davidsanchezcrespillo/feedReader">GitHub</a>
+    </p>
     </div>
 </div>
   <script type='text/javascript' src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
